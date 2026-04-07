@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Times de Futebol</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f9;}
+        h1 { color: #333; }
+        .time-card { background: white; padding: 15px; margin-bottom: 10px; border-radius: 5px; border-left: 5px solid #28a745;}
+    </style>
+</head>
+<body>
+    <h1>Campeonato - Times Cadastrados</h1>
+    
+    {% if times %}
+        {% for time in times %}
+            <div class="time-card">
+                <h2>{{ time.nome }}</h2>
+                <p><strong>Cidade:</strong> {{ time.cidade }}</p>
+                <p><strong>Fundação:</strong> {{ time.ano_fundacao }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Nenhum time cadastrado ainda. Acesse o /admin para inserir!</p>
+    {% endif %}
+</body>
+</html>
